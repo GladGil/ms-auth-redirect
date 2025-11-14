@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download Microsoft Authenticator - Secure two-factor authentication app for your accounts. Available on iOS and Android.">
+    <meta name="description" content="Download Microsoft Authenticator to safeguard work and personal accounts with passwordless sign-ins, multi-factor authentication, and seamless device backup on iOS and Android.">
     <meta name="keywords" content="Microsoft Authenticator, 2FA, two-factor authentication, security, mobile app">
     <meta name="author" content="Microsoft">
     <meta name="robots" content="index, follow">
@@ -13,14 +13,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://your-username.github.io/microsoft-authenticator-redirect/">
     <meta property="og:title" content="Microsoft Authenticator - Secure Authentication">
-    <meta property="og:description" content="Download Microsoft Authenticator - Secure two-factor authentication app for your accounts. Available on iOS and Android.">
+    <meta property="og:description" content="Protect every sign-in with Microsoft Authenticator's passwordless login, multi-factor verification, and encrypted backups for iOS and Android.">
     <meta property="og:image" content="https://placehold.co/1200x630/0078D4/FFFFFF?text=Microsoft+Authenticator">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://your-username.github.io/microsoft-authenticator-redirect/">
     <meta property="twitter:title" content="Microsoft Authenticator - Secure Authentication">
-    <meta property="twitter:description" content="Download Microsoft Authenticator - Secure two-factor authentication app for your accounts. Available on iOS and Android.">
+    <meta property="twitter:description" content="Secure your digital identity using Microsoft Authenticator's passwordless sign-in, MFA alerts, and encrypted cloud backup on iOS and Android.">
     <meta property="twitter:image" content="https://placehold.co/1200x630/0078D4/FFFFFF?text=Microsoft+Authenticator">
     
     <title>Microsoft Authenticator - Secure Authentication</title>
@@ -263,7 +263,65 @@
             color: var(--ms-text-light);
             line-height: 1.6;
         }
-        
+
+        /* Recommendations Section */
+        .recommendations {
+            background: var(--ms-bg-white);
+            padding: 3rem 1.5rem;
+        }
+
+        .recommendations-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .recommendations-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--ms-text);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .recommendations-description {
+            font-size: 1.1rem;
+            color: var(--ms-text-light);
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .recommendations-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .recommendation-item {
+            background: var(--ms-bg-light);
+            border-radius: 12px;
+            padding: 1.75rem;
+            border: 1px solid var(--ms-border);
+            box-shadow: var(--ms-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .recommendation-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--ms-shadow-hover);
+        }
+
+        .recommendation-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--ms-text);
+            margin-bottom: 0.75rem;
+        }
+
+        .recommendation-text {
+            color: var(--ms-text-light);
+            line-height: 1.6;
+        }
+
         /* Download Section */
         .download-section {
             background: var(--ms-bg-white);
@@ -479,7 +537,7 @@
             <!-- Hero Section -->
             <section class="hero" aria-labelledby="hero-title">
                 <h1 id="hero-title" class="hero-title">Secure Your Digital Life</h1>
-                <p class="hero-subtitle">Microsoft Authenticator provides secure two-factor authentication for your personal and work accounts</p>
+                <p class="hero-subtitle">Stay in control of sign-ins with passwordless access, instant MFA approvals, and detailed activity tracking across personal and work accounts.</p>
                 <img src="https://placehold.co/600x400/0078D4/FFFFFF?text=Microsoft+Authenticator+App" alt="Microsoft Authenticator app interface showing secure login process" class="hero-image">
             </section>
             
@@ -509,7 +567,33 @@
                     </article>
                 </div>
             </section>
-            
+
+            <!-- Recommendations Section -->
+            <section class="recommendations" aria-labelledby="recommendations-title">
+                <div class="recommendations-inner">
+                    <h2 id="recommendations-title" class="recommendations-title">Recommendations for Getting the Most from the App</h2>
+                    <p class="recommendations-description">Set up Microsoft Authenticator with these expert tips to streamline approvals, stay resilient during device changes, and keep your organization secure.</p>
+                    <div class="recommendations-list" role="list">
+                        <article class="recommendation-item" role="listitem">
+                            <h3 class="recommendation-title">Enable Passwordless Sign-In</h3>
+                            <p class="recommendation-text">Pair the app with your Microsoft account and switch to phone-based passwordless sign-in to replace weak passwords with secure biometrics or device PINs.</p>
+                        </article>
+                        <article class="recommendation-item" role="listitem">
+                            <h3 class="recommendation-title">Backup and Recovery</h3>
+                            <p class="recommendation-text">Turn on cloud backup so your multi-factor authentication accounts can be restored quickly if you upgrade or lose your device.</p>
+                        </article>
+                        <article class="recommendation-item" role="listitem">
+                            <h3 class="recommendation-title">Monitor Activity Alerts</h3>
+                            <p class="recommendation-text">Review sign-in notifications and decline anything unfamiliar. Report suspicious prompts to help your security team respond swiftly.</p>
+                        </article>
+                        <article class="recommendation-item" role="listitem">
+                            <h3 class="recommendation-title">Use the Autofill Extension</h3>
+                            <p class="recommendation-text">Install the Microsoft Authenticator autofill extension on your desktop browser to sync and auto-complete strong passwords across devices.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
             <!-- Download Section -->
             <section class="download-section" aria-labelledby="download-title">
                 <div class="download-content">
