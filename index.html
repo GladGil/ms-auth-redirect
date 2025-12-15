@@ -1,741 +1,153 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download Microsoft Authenticator - Secure two-factor authentication app for your accounts. Available on iOS and Android.">
-    <meta name="keywords" content="Microsoft Authenticator, 2FA, two-factor authentication, security, mobile app">
-    <meta name="author" content="Microsoft">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-username.github.io/microsoft-authenticator-redirect/">
-    <meta property="og:title" content="Microsoft Authenticator - Secure Authentication">
-    <meta property="og:description" content="Download Microsoft Authenticator - Secure two-factor authentication app for your accounts. Available on iOS and Android.">
-    <meta property="og:image" content="https://placehold.co/1200x630/0078D4/FFFFFF?text=Microsoft+Authenticator">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://your-username.github.io/microsoft-authenticator-redirect/">
-    <meta property="twitter:title" content="Microsoft Authenticator - Secure Authentication">
-    <meta property="twitter:description" content="Download Microsoft Authenticator - Secure two-factor authentication app for your accounts. Available on iOS and Android.">
-    <meta property="twitter:image" content="https://placehold.co/1200x630/0078D4/FFFFFF?text=Microsoft+Authenticator">
-    
-    <title>Microsoft Authenticator - Secure Authentication</title>
-    <link rel="canonical" href="https://your-username.github.io/microsoft-authenticator-redirect/">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230078D4'/><text x='8' y='12' text-anchor='middle' fill='white' font-family='Arial' font-size='10'>M</text></svg>">
-    
+    <title>Get Microsoft Authenticator</title>
     <style>
-        /* CSS Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-        }
-        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #323130;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        
-        /* Microsoft Color Palette */
-        :root {
-            --ms-primary: #0078D4;
-            --ms-primary-hover: #106ebe;
-            --ms-secondary: #00BCF2;
-            --ms-accent: #8764B8;
-            --ms-success: #107C10;
-            --ms-warning: #FFB900;
-            --ms-danger: #D83B01;
-            --ms-text: #323130;
-            --ms-text-light: #605e5c;
-            --ms-bg-light: #faf9f8;
-            --ms-bg-white: #ffffff;
-            --ms-border: #edebe9;
-            --ms-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            --ms-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* Loading Spinner */
-        .loading-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: var(--ms-bg-white);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             display: flex;
             flex-direction: column;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #0078d4, #106ebe);
+            color: white;
+            text-align: center;
+            padding: 20px;
         }
         
-        .loading-container.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid var(--ms-border);
-            border-top: 4px solid var(--ms-primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-        
-        .loading-text {
-            color: var(--ms-text-light);
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Main Content */
-        .main-content {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .main-content.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Header */
-        .header {
-            background: var(--ms-bg-white);
-            box-shadow: var(--ms-shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 400px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
         
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: var(--ms-text);
-        }
-        
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--ms-primary);
-            border-radius: 4px;
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 16px;
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            font-size: 40px;
             font-weight: bold;
-            font-size: 1.2rem;
+            color: #0078d4;
         }
         
-        .logo-text {
-            font-size: 1.5rem;
+        h1 {
+            margin: 0 0 10px;
+            font-size: 24px;
             font-weight: 600;
         }
         
-        /* Hero Section */
-        .hero {
-            padding: 4rem 1.5rem 2rem;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
+        p {
+            margin: 0 0 30px;
+            opacity: 0.9;
+            line-height: 1.5;
         }
         
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--ms-text);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--ms-text-light);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .hero-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: var(--ms-shadow-hover);
-            margin-bottom: 3rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .hero-image:hover {
-            transform: translateY(-5px);
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 3rem 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .features-title {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--ms-text);
-            margin-bottom: 3rem;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .feature-card {
-            background: var(--ms-bg-white);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: var(--ms-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid var(--ms-border);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--ms-shadow-hover);
-        }
-        
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--ms-primary), var(--ms-secondary));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            color: white;
-            font-size: 1.8rem;
-        }
-        
-        .feature-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--ms-text);
-            margin-bottom: 1rem;
-        }
-        
-        .feature-description {
-            color: var(--ms-text-light);
-            line-height: 1.6;
-        }
-        
-        /* Download Section */
-        .download-section {
-            background: var(--ms-bg-white);
-            padding: 3rem 1.5rem;
-            text-align: center;
-        }
-        
-        .download-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .download-title {
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--ms-text);
-            margin-bottom: 1rem;
-        }
-        
-        .download-subtitle {
-            font-size: 1.1rem;
-            color: var(--ms-text-light);
-            margin-bottom: 2.5rem;
-        }
-        
-        .download-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            background: var(--ms-primary);
-            color: white;
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #0078d4;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 25px;
             font-weight: 600;
-            font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: var(--ms-shadow);
+            margin: 10px;
         }
         
-        .download-btn:hover {
-            background: var(--ms-primary-hover);
+        .btn:hover {
             transform: translateY(-2px);
-            box-shadow: var(--ms-shadow-hover);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
-        .download-btn:focus {
-            outline: 2px solid var(--ms-primary);
-            outline-offset: 2px;
+        .detecting {
+            animation: pulse 2s infinite;
         }
         
-        .btn-icon {
-            font-size: 1.4rem;
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
         
-        /* Footer */
-        .footer {
-            background: var(--ms-text);
-            color: white;
-            padding: 2rem 1.5rem 1rem;
-            text-align: center;
+        .manual-links {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-text {
+        .manual-links h3 {
+            font-size: 16px;
+            margin: 0 0 15px;
             opacity: 0.8;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-link {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-        
-        .footer-link:hover {
-            opacity: 1;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .download-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .download-btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .header-content {
-                padding: 0.75rem 1rem;
-            }
-            
-            .logo-text {
-                font-size: 1.25rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero {
-                padding: 2rem 1rem 1rem;
-            }
-            
-            .hero-title {
-                font-size: 1.75rem;
-            }
-            
-            .features {
-                padding: 2rem 1rem;
-            }
-            
-            .download-section {
-                padding: 2rem 1rem;
-            }
-            
-            .feature-card {
-                padding: 1.5rem;
-            }
-        }
-        
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-        }
-        
-        /* Focus indicators */
-        :focus-visible {
-            outline: 2px solid var(--ms-primary);
-            outline-offset: 2px;
-        }
-        
-        /* Skip to main content */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 6px;
-            background: var(--ms-primary);
-            color: white;
-            padding: 8px;
-            text-decoration: none;
-            z-index: 10000;
-        }
-        
-        .skip-link:focus {
-            top: 6px;
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-container" id="loadingContainer" aria-label="Loading" role="status">
-        <div class="spinner" aria-hidden="true"></div>
-        <div class="loading-text">Detecting your device...</div>
-    </div>
-    
-    <!-- Skip Link for Accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Main Content -->
-    <div class="main-content" id="mainContent">
-        <!-- Header -->
-        <header class="header" role="banner">
-            <div class="header-content">
-                <a href="#" class="logo" aria-label="Microsoft Authenticator">
-                    <div class="logo-icon" aria-hidden="true">M</div>
-                    <div class="logo-text">Microsoft Authenticator</div>
-                </a>
-            </div>
-        </header>
+    <div class="container">
+        <div class="logo">🔐</div>
+        <h1>Microsoft Authenticator</h1>
+        <p id="status" class="detecting">Detecting your device...</p>
         
-        <!-- Main Content -->
-        <main id="main-content" role="main">
-            <!-- Hero Section -->
-            <section class="hero" aria-labelledby="hero-title">
-                <h1 id="hero-title" class="hero-title">Secure Your Digital Life</h1>
-                <p class="hero-subtitle">Microsoft Authenticator provides secure two-factor authentication for your personal and work accounts</p>
-                <img src="https://placehold.co/600x400/0078D4/FFFFFF?text=Microsoft+Authenticator+App" alt="Microsoft Authenticator app interface showing secure login process" class="hero-image">
-            </section>
-            
-            <!-- Features Section -->
-            <section class="features" aria-labelledby="features-title">
-                <h2 id="features-title" class="features-title">Why Choose Microsoft Authenticator?</h2>
-                <div class="features-grid">
-                    <article class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">🔐</div>
-                        <h3 class="feature-title">Enhanced Security</h3>
-                        <p class="feature-description">Add an extra layer of security to your accounts with two-factor authentication, protecting you from unauthorized access.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">📱</div>
-                        <h3 class="feature-title">Easy to Use</h3>
-                        <p class="feature-description">Simple setup and intuitive interface make securing your accounts effortless across all your devices.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">☁️</div>
-                        <h3 class="feature-title">Cloud Backup</h3>
-                        <p class="feature-description">Your authentication codes are safely backed up to the cloud, so you never lose access to your accounts.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">⚡</div>
-                        <h3 class="feature-title">Fast & Reliable</h3>
-                        <p class="feature-description">Quick authentication with push notifications and time-based codes that work even offline.</p>
-                    </article>
-                </div>
-            </section>
-            
-            <!-- Download Section -->
-            <section class="download-section" aria-labelledby="download-title">
-                <div class="download-content">
-                    <h2 id="download-title" class="download-title">Download Microsoft Authenticator</h2>
-                    <p class="download-subtitle">Available for iOS and Android devices. Start securing your accounts today.</p>
-                    <div class="download-buttons">
-                        <a href="https://apps.apple.com/app/microsoft-authenticator/id983156458" 
-                           class="download-btn" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Download Microsoft Authenticator from Apple App Store">
-                            <span class="btn-icon" aria-hidden="true">📱</span>
-                            Download for iOS
-                        </a>
-                        <a href="https://play.google.com/store/apps/details?id=com.azure.authenticator" 
-                           class="download-btn" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Download Microsoft Authenticator from Google Play Store">
-                            <span class="btn-icon" aria-hidden="true">🤖</span>
-                            Download for Android
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </main>
-        
-        <!-- Footer -->
-        <footer class="footer" role="contentinfo">
-            <div class="footer-content">
-                <p class="footer-text">© 2024 Microsoft Corporation. All rights reserved.</p>
-                <nav class="footer-links" aria-label="Footer navigation">
-                    <a href="https://privacy.microsoft.com/privacystatement" class="footer-link" target="_blank" rel="noopener noreferrer">Privacy</a>
-                    <a href="https://www.microsoft.com/servicesagreement" class="footer-link" target="_blank" rel="noopener noreferrer">Terms</a>
-                    <a href="https://support.microsoft.com" class="footer-link" target="_blank" rel="noopener noreferrer">Support</a>
-                </nav>
-            </div>
-        </footer>
+        <div id="manual-links" class="manual-links" style="display: none;">
+            <h3>Choose your platform:</h3>
+            <a href="https://apps.apple.com/app/microsoft-authenticator/id983156458" class="btn">
+                📱 Download for iOS
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.azure.authenticator" class="btn">
+                🤖 Download for Android
+            </a>
+        </div>
     </div>
-    
+
     <script>
-        class DeviceDetector {
-            constructor() {
-                this.sessionKey = 'ms-auth-redirect-attempted';
-                this.loadingContainer = document.getElementById('loadingContainer');
-                this.mainContent = document.getElementById('mainContent');
-                this.init();
-            }
+        function detectAndRedirect() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
             
-            init() {
-                // Show loading spinner
-                this.showLoading();
-                
-                // Simulate detection delay for better UX
+            // iOS detection
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                document.getElementById('status').textContent = 'Redirecting to App Store...';
                 setTimeout(() => {
-                    this.detectAndRedirect();
+                    window.location.href = 'https://apps.apple.com/app/microsoft-authenticator/id983156458';
                 }, 1500);
+                return;
             }
             
-            showLoading() {
-                this.loadingContainer.classList.remove('hidden');
-                this.mainContent.style.display = 'none';
-            }
-            
-            hideLoading() {
-                this.loadingContainer.classList.add('hidden');
-                this.mainContent.style.display = 'block';
-                
-                // Trigger content animation
+            // Android detection
+            if (/android/i.test(userAgent)) {
+                document.getElementById('status').textContent = 'Redirecting to Google Play...';
                 setTimeout(() => {
-                    this.mainContent.classList.add('visible');
-                }, 100);
+                    window.location.href = 'https://play.google.com/store/apps/details?id=com.azure.authenticator';
+                }, 1500);
+                return;
             }
             
-            detectAndRedirect() {
-                try {
-                    // Check if we've already attempted a redirect this session
-                    if (sessionStorage.getItem(this.sessionKey)) {
-                        this.showLandingPage();
-                        return;
-                    }
-                    
-                    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-                    const deviceType = this.getDeviceType(userAgent);
-                    
-                    if (deviceType.isMobile) {
-                        this.performRedirect(deviceType.os);
-                    } else {
-                        this.showLandingPage();
-                    }
-                } catch (error) {
-                    console.error('Device detection failed:', error);
-                    this.showLandingPage();
-                }
-            }
-            
-            getDeviceType(userAgent) {
-                const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
-                let os = 'unknown';
-                
-                if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                    os = 'ios';
-                } else if (/Android/i.test(userAgent)) {
-                    os = 'android';
-                }
-                
-                return {
-                    isMobile,
-                    os,
-                    userAgent
-                };
-            }
-            
-            performRedirect(os) {
-                // Mark that we've attempted a redirect
-                sessionStorage.setItem(this.sessionKey, 'true');
-                
-                const urls = {
-                    ios: 'https://apps.apple.com/app/microsoft-authenticator/id983156458',
-                    android: 'https://play.google.com/store/apps/details?id=com.azure.authenticator'
-                };
-                
-                const targetUrl = urls[os];
-                
-                if (targetUrl) {
-                    // Add a small delay before redirect for better UX
-                    setTimeout(() => {
-                        try {
-                            // Try to open in the same window
-                            window.location.href = targetUrl;
-                        } catch (redirectError) {
-                            console.error('Redirect failed:', redirectError);
-                            // Fallback: show landing page
-                            this.showLandingPage();
-                        }
-                    }, 500);
-                } else {
-                    this.showLandingPage();
-                }
-            }
-            
-            showLandingPage() {
-                this.hideLoading();
-                
-                // Add some interactive enhancements
-                this.addInteractiveFeatures();
-            }
-            
-            addInteractiveFeatures() {
-                // Add smooth scrolling for anchor links
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const target = document.querySelector(this.getAttribute('href'));
-                        if (target) {
-                            target.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    });
-                });
-                
-                // Add hover effects to feature cards
-                const featureCards = document.querySelectorAll('.feature-card');
-                featureCards.forEach(card => {
-                    card.addEventListener('mouseenter', function() {
-                        this.style.transform = 'translateY(-8px)';
-                    });
-                    
-                    card.addEventListener('mouseleave', function() {
-                        this.style.transform = 'translateY(-5px)';
-                    });
-                });
-                
-                // Track download button clicks
-                const downloadButtons = document.querySelectorAll('.download-btn');
-                downloadButtons.forEach(button => {
-                    button.addEventListener('click', function() {
-                        const platform = this.textContent.includes('iOS') ? 'iOS' : 'Android';
-                        console.log(`Download clicked: ${platform}`);
-                        
-                        // Add visual feedback
-                        this.style.transform = 'scale(0.95)';
-                        setTimeout(() => {
-                            this.style.transform = 'translateY(-2px)';
-                        }, 150);
-                    });
-                });
-            }
+            // Desktop or unknown device - show manual options
+            document.getElementById('status').textContent = 'Choose your mobile platform:';
+            document.getElementById('manual-links').style.display = 'block';
         }
         
-        // Enhanced error handling
-        window.addEventListener('error', function(e) {
-            console.error('Global error:', e.error);
-            // If there's an error, make sure we show the landing page
-            const detector = new DeviceDetector();
-            detector.showLandingPage();
-        });
+        // Run detection when page loads
+        window.onload = detectAndRedirect;
         
-        // Initialize when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => new DeviceDetector());
-        } else {
-            new DeviceDetector();
-        }
-        
-        // Handle browser back button
-        window.addEventListener('popstate', function() {
-            // Clear the session storage if user navigates back
-            sessionStorage.removeItem('ms-auth-redirect-attempted');
-        });
-        
-        // Performance optimization: preload app store pages
-        const preloadLinks = [
-            'https://apps.apple.com/app/microsoft-authenticator/id983156458',
-            'https://play.google.com/store/apps/details?id=com.azure.authenticator'
-        ];
-        
-        preloadLinks.forEach(url => {
-            const link = document.createElement('link');
-            link.rel = 'prefetch';
-            link.href = url;
-            document.head.appendChild(link);
-        });
+        // Fallback - show manual links after 5 seconds if redirect didn't work
+        setTimeout(() => {
+            if (document.getElementById('manual-links').style.display === 'none') {
+                document.getElementById('status').textContent = 'Choose your platform:';
+                document.getElementById('manual-links').style.display = 'block';
+            }
+        }, 5000);
     </script>
 </body>
 </html>
-
